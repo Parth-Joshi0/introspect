@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B2EBE7892ED230D700D41307 /* SmartSpectraSwiftSDK in Frameworks */ = {isa = PBXBuildFile; productRef = B2EBE7882ED230D700D41307 /* SmartSpectraSwiftSDK */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		B2EBE76B2ED2305D00D41307 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2EBE7892ED230D700D41307 /* SmartSpectraSwiftSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = IntroSpect;
 			packageProductDependencies = (
+				B2EBE7882ED230D700D41307 /* SmartSpectraSwiftSDK */,
 			);
 			productName = IntroSpect;
 			productReference = B2EBE75B2ED2305C00D41307 /* IntroSpect.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = B2EBE7522ED2305C00D41307;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B2EBE7872ED230D700D41307 /* XCRemoteSwiftPackageReference "SmartSpectra" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B2EBE75C2ED2305C00D41307 /* Products */;
 			projectDirPath = "";
@@ -395,13 +404,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MD89GWM68P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera access to measure vitals with SmartSpectra.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This is used to ensure your app can play back audio analysis and feedback even when the device is silenced.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,13 +439,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MD89GWM68P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera access to measure vitals with SmartSpectra.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This is used to ensure your app can play back audio analysis and feedback even when the device is silenced.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -570,6 +587,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B2EBE7872ED230D700D41307 /* XCRemoteSwiftPackageReference "SmartSpectra" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Presage-Security/SmartSpectra";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B2EBE7882ED230D700D41307 /* SmartSpectraSwiftSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2EBE7872ED230D700D41307 /* XCRemoteSwiftPackageReference "SmartSpectra" */;
+			productName = SmartSpectraSwiftSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B2EBE7532ED2305C00D41307 /* Project object */;
 }

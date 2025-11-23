@@ -1,0 +1,47 @@
+# Xcode
+.DS_Store
+build/
+DerivedData/
+*.xcworkspace/xcuserdata/
+*.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+
+# User-specific files
+xcuserdata/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Swift Package Manager
+.swiftpm/
+.build/
+Packages/
+
+# CocoaPods (if ever added)
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Archives
+*.xcarchive
+
+# Logs
+*.log
+
+# Simulator files
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Other
+*.swp
+*.lock
+*.tmp
+

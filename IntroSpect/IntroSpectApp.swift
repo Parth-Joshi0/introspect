@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import Foundation
 
 @main
 struct IntroSpectApp: App {
@@ -30,3 +31,13 @@ struct IntroSpectApp: App {
         .modelContainer(sharedModelContainer)
     }
 }
+
+@Model
+final class Item {
+    var timestamp: Date
+    
+    init(timestamp: Date) {
+        self.timestamp = timestamp
+    }
+}
+

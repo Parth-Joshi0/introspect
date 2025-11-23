@@ -1,61 +1,56 @@
-//
-//  ContentView.swift
-//  IntroSpect
-//
-//  Created by Parth Joshi on 2025-11-22.
-//
-
 import SwiftUI
-import SwiftData
+import SmartSpectraSwiftSDK
 
-struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
-    var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
-    }
+enum MainTab {
+    case home
+    case history
 }
 
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+@available(iOS 16.0, *)
+struct ContentView: View {
+    @ObservedObject var sdk = SmartSpectraSwiftSDK.shared
+
+    @StateObject var settingsManager = SettingsManager()
+    @StateObject var historyManager = HistoryManager() // Create History Manager
+    
+    init() {
+        sdk.setApiKey("ENTER API KEY HERE")
+    }
+
+    @State private var selectedTab: MainTab = .home
+    @State private var isRecording: Bool = false
+
+    var body: some View {
+        ZStack(alignment: .bottom) {
+
+            // --- 1. Main Page Content ---
+            Group {
+                switch selectedTab {
+                case .home:
+                    // Inject both managers
+                    MonitorView(isRecording: $isRecording)
+                        .environmentObject(settingsManager)
+                        .environmentObject(historyManager)
+
+                case .history:
+                    // Inject both managers
+                    HistoryView()
+                        .environmentObject(settingsManager)
+                        .environmentObject(historyManager)
+                }
+            }
+            .padding(.bottom, 0)
+            
+            // --- 2. Floating Tab Bar (Assuming CustomTabBar exists) ---
+            CustomTabBar(
+                selectedTab: $selectedTab,
+                isRecording: $isRecording
+            )
+        }
+        // No .onChange required here, as MonitorView handles saving to the manager.
+        .background(
+            Color(red: 249/255, green: 250/255, blue: 251/255)
+                .ignoresSafeArea()
+        )
+    }
 }
