@@ -44,10 +44,6 @@ Swift / SwiftUI
 
   Native iOS programming language and modern UI framework.
 
-Core Data / Firebase
-
-  For secure user settings, history storage, and physiological data logging.
-
 ----------------------------
 
 🛠 Getting Started
